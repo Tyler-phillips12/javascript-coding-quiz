@@ -1,6 +1,10 @@
 ## javascript-quiz
 This is a code quiz application that tests your knowledge of JavaScript. It features a timer, multiple-choice questions, and the ability to save your initials and score. The quiz follows these rules:
 
+## ScreenShot of Application 
+<img width="1280" alt="Screen Shot 2023-06-10 at 10 01 34 AM" src="https://github.com/Tyler-phillips12/javascript-coding-quiz/assets/123614404/e9c8ec27-e6af-4f55-b3cb-42b010738fe7">
+
+
 ## Usage
 1. Click the "Start" button to begin the quiz.
 2. A timer will start counting down, and the first question will be presented.
