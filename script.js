@@ -107,18 +107,18 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
   
     // Event listener for answer buttons
-    answers.addEventListener("click", function(event) {
-        if (event.target.classList.contains("answer-button")) {
-            const selectedAnswer = event.target.textContent;
-            checkAnswer(selectedAnswer);
-            currentQuestionNumber++;
-            if (currentQuestionNumber < questions.length) {
-                showNextQuestion();
-            } else {
-                endQuiz();
-            }
+answers.addEventListener("click", function(event) {
+    if (event.target.classList.contains("answer-button")) {
+        const selectedAnswer = event.target.textContent;
+        checkAnswer(selectedAnswer);
+        currentQuestionNumber++;
+        if (currentQuestionNumber < questions.length) {
+            showNextQuestion();
+        } else {
+            endQuiz();
         }
-    });
+    }
+});
   
     // Function to check the selected answer
     function checkAnswer(selectedAnswer) {
@@ -133,6 +133,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to show the next question
     function showNextQuestion() {
         const currentQuestion = questions[currentQuestionNumber];
+
+        questionBank.textContent = currentQuestion.qText
   
         // Clear the answer section
         answers.innerHTML = '';
@@ -152,4 +154,4 @@ document.addEventListener("DOMContentLoaded", function() {
     
       questionBank.innerHTML += "<p>High score saved!</p>";
     }
-  });
+});
