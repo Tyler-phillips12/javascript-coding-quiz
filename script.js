@@ -104,7 +104,79 @@ document.addEventListener("DOMContentLoaded", function() {
             },
             correct: "unlimited",
         },
-    ];
+        {
+            qText: "What does HTML stand for?",
+            answers: {
+              a: "Hyper Text Markup Language",
+              b: "Home Tool Markup Language",
+              c: "Hyperlinks and Text Markup Language",
+            },
+            correct: "Hyper Text Markup Language",
+          },
+          {
+            qText: "Which tag is used to define an unordered list in HTML?",
+            answers: {
+              a: "<ul>",
+              b: "<ol>",
+              c: "<li>",
+            },
+            correct: "<ul>",
+          },
+          {
+            qText: "Which CSS property is used to change the text color of an element?",
+            answers: {
+              a: "color",
+              b: "background-color",
+              c: "font-size",
+            },
+            correct: "color",
+          },
+          {
+            qText: "Which JavaScript method is used to add a new element to an array?",
+            answers: {
+              a: "push()",
+              b: "concat()",
+              c: "slice()",
+            },
+            correct: "push()",
+          },
+          {
+            qText: "What is the purpose of the CSS box-sizing property?",
+            answers: {
+              a: "To control the visibility of an element",
+              b: "To specify the order of flexible items",
+              c: "To include/exclude the padding and border in the total width/height of an element",
+            },
+            correct: "To include/exclude the padding and border in the total width/height of an element",
+          },
+          {
+            qText: "What is the correct syntax to comment out a line of CSS code?",
+            answers: {
+              a: "// This is a comment",
+              b: "/* This is a comment */",
+              c: "<!-- This is a comment -->",
+            },
+            correct: "/* This is a comment */",
+          },
+          {
+            qText: "Which JavaScript keyword is used to declare a variable?",
+            answers: {
+              a: "variable",
+              b: "let",
+              c: "var",
+            },
+            correct: "var",
+          },
+          {
+            qText: "Which HTML tag is used to link an external JavaScript file?",
+            answers: {
+              a: "<script>",
+              b: "<style>",
+              c: "<link>",
+            },
+            correct: "<script>",
+          },
+        ];
   
     // Event listener for answer buttons
 answers.addEventListener("click", function(event) {
@@ -127,6 +199,10 @@ answers.addEventListener("click", function(event) {
             score++;
         } else {
             alert("Incorrect answer!");
+            timeRemaining -= 3;
+            if (timeRemaining < 0) {
+                timeRemaining = 0;
+            }
         }
     }
   
@@ -147,11 +223,12 @@ answers.addEventListener("click", function(event) {
             answers.appendChild(answerButton);
         }
     }
-  
+
     function endQuiz() {
-      clearInterval(timerInterval);
-      questionBank.innerHTML = `Quiz Ended. Your score: ${score}`;
-    
-      questionBank.innerHTML += "<p>High score saved!</p>";
-    }
-});
+        clearInterval(timerInterval);
+        const totalPossibleScore = questions.length;
+        const scoreText = `Your score: ${score} out of ${totalPossibleScore}`;
+        questionBank.innerHTML = `Quiz Ended. ${scoreText}`;
+        questionBank.innerHTML += "<p>High score saved!</p>";
+      }
+    });
